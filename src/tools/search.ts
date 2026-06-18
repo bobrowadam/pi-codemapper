@@ -12,10 +12,11 @@ export function registerSearchTool(pi: ExtensionAPI): void {
 		name: "search",
 		label: "Search",
 		description:
-			"Search CodeMapper's indexed symbol and Markdown/doc names with `cm query --context full --limit 50`. Default matching is fuzzy/case-insensitive substring search; set exact=true only for a known exact indexed name. Query examples: `auth`, `cmd_query`, `Parser`, `parse|index|cache`, `Caching`, `functions`, `headings`, `/v1/orders`, or `GET /v1/orders`. Returns a JSON array of exact symbol, doc_section, and endpoint items with paths and line ranges; it is not semantic natural-language search and does not search arbitrary file text.",
+			"Search CodeMapper's indexed symbol and Markdown/doc names with `cm query --context full --limit 50`. Use only for CodeMapper-supported languages/docs: Python, JavaScript/TypeScript, Rust, Java, Go, C, Swift, Ruby, and Markdown; for unsupported languages such as Emacs Lisp, prefer rg/read. Default matching is fuzzy/case-insensitive substring search; set exact=true only for a known exact indexed name. Query examples: `auth`, `cmd_query`, `Parser`, `parse|index|cache`, `Caching`, `functions`, `headings`, `/v1/orders`, or `GET /v1/orders`. Returns a JSON array of exact symbol, doc_section, and endpoint items with paths and line ranges; it is not semantic natural-language search and does not search arbitrary file text.",
 		promptSnippet:
 			"search: Locate symbols/docs/endpoints by compact keyword, exact name, route, heading, plural type, or OR query; returns JSON results.",
 		promptGuidelines: [
+			"Use CodeMapper search only for supported languages/docs: Python, JavaScript/TypeScript, Rust, Java, Go, C, Swift, Ruby, and Markdown; for unsupported languages such as Emacs Lisp, use rg/read instead.",
 			"Use search when you need candidate symbols, docs headings, code blocks, or endpoint-like routes before reading files.",
 			"Use search.query as compact terms, not full questions: `auth`, `cmd_query`, `OrderService`, `parse|index|cache`, `Caching`, `/v1/orders`, `functions`, `headings`.",
 			"Search is fuzzy/case-insensitive by default and may return partial matches; use search.exact only when you already know the exact indexed symbol or heading name.",

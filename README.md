@@ -14,6 +14,8 @@ path({ from: string, to: string })
 
 The tools return exact CodeMapper-derived data only. They do not add relevance scores, summaries, recommendations, or inferred explanations.
 
+Use these tools only for CodeMapper-supported languages/docs: Python, JavaScript/TypeScript, Rust, Java, Go, C, Swift, Ruby, and Markdown. For unsupported languages such as Emacs Lisp, use plain `rg`, `read`, or language-native tooling instead.
+
 ## Prerequisites
 
 You need Pi and a working CodeMapper binary. The extension resolves `cm` in this order: `CODEMAPPER_BIN`, then `$HOME/.local/bin/cm`, then `cm` on `PATH`.

@@ -16,6 +16,7 @@ export function registerExpandTool(pi: ExtensionAPI): void {
 		promptSnippet:
 			"expand: Impact radius for one exact symbol: definition(s), static callers, direct callees, and detected tests before edits/refactors.",
 		promptGuidelines: [
+			"Use CodeMapper only for supported languages/docs: Python, JavaScript/TypeScript, Rust, Java, Go, C, Swift, Ruby, and Markdown; for unsupported languages such as Emacs Lisp, use rg/read instead.",
 			"Use expand before changing, deleting, renaming, or refactoring a symbol to see likely impact and available tests.",
 			"Use search first if you are unsure of the exact indexed symbol name; expand does not do fuzzy matching.",
 			"Do not pass a file path or natural-language phrase to expand.symbol; pass the exact symbol name from CodeMapper results.",

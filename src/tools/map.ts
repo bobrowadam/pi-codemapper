@@ -14,10 +14,11 @@ export function registerMapTool(pi: ExtensionAPI): void {
 		name: "map",
 		label: "Map",
 		description:
-			"Map a repository or directory with CodeMapper before choosing files or search terms. Runs `cm stats` plus `cm map --level 2` and returns a JSON array containing one stats item plus file items when the file map fits. If the level-2 file map is too large, map returns stats, a notice, and compact directory groups so the agent can call map again on a smaller returned directory path. Use for repo/package/module orientation such as `.`, `src`, `packages/api`, or `docs`; the path must be a directory scope, not a single file.",
+			"Map a repository or directory with CodeMapper before choosing files or search terms. Use only for CodeMapper-supported languages/docs: Python, JavaScript/TypeScript, Rust, Java, Go, C, Swift, Ruby, and Markdown; for unsupported languages such as Emacs Lisp, prefer rg/read. Runs `cm stats` plus `cm map --level 2` and returns a JSON array containing one stats item plus file items when the file map fits. If the level-2 file map is too large, map returns stats, a notice, and compact directory groups so the agent can call map again on a smaller returned directory path. Use for repo/package/module orientation such as `.`, `src`, `packages/api`, or `docs`; the path must be a directory scope, not a single file.",
 		promptSnippet:
 			"map: Repo/directory orientation via CodeMapper stats + level-2 file map; large maps fall back to directory groups.",
 		promptGuidelines: [
+			"Use CodeMapper only for supported languages/docs: Python, JavaScript/TypeScript, Rust, Java, Go, C, Swift, Ruby, and Markdown; for unsupported languages such as Emacs Lisp, use rg/read instead.",
 			"Use map first when you do not yet know the relevant files, symbols, or docs sections; it is cheaper than broad ls/find/read.",
 			"Use map.path to scope the overview to the smallest useful directory such as `src`, `apps/web`, `packages/api`, or `docs`.",
 			"Map normally returns file-level structure; if map returns a map_output_optimized notice, call map again with a smaller path from the returned directory items for file-level mapping.",

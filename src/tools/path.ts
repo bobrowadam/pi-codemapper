@@ -15,6 +15,7 @@ export function registerPathTool(pi: ExtensionAPI): void {
 			"Find the shortest detected static call path from one exact symbol to another using CodeMapper trace. Returns a JSON array with one call_path item when a path is found, `[]` when no static path is detected, or a plain string error. Use for questions like `main` -> `try_load_or_rebuild` or `handler` -> `send_response` after search has confirmed both exact symbol names. This v1 tool runs in the current cwd with no path scope or fuzzy lookup; `[]` does not prove runtime impossibility.",
 		promptSnippet: "path: Trace a static call chain from exact symbol A to exact symbol B in current cwd; returns one JSON call_path or [].",
 		promptGuidelines: [
+			"Use CodeMapper only for supported languages/docs: Python, JavaScript/TypeScript, Rust, Java, Go, C, Swift, Ruby, and Markdown; for unsupported languages such as Emacs Lisp, use rg/read instead.",
 			"Use path when you know two exact symbols and need to see whether CodeMapper detects a static call chain between them.",
 			"Use search first to confirm exact path.from and path.to names; path does not do fuzzy matching in this extension.",
 			"Use expand for the relationship radius around one symbol; use path only for a specific A-to-B chain.",
